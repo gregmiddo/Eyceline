@@ -3,299 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eyceline | Secure IT Asset Disposition, Darwin NT</title>
-<meta name="description" content="Greg Middleton trading as Eyceline. Certified Blancco data erasure and IT decommissioning in Darwin, Northern Territory.">
+<title>Eyceline | IT Disposal, Hardware, Service and Software, Darwin NT</title>
+<meta name="description" content="Greg Middleton trading as Eyceline. Certified data erasure, IT asset disposition, refurbished hardware, onsite IT service, ID cards and custom software in Darwin, Northern Territory.">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy-950: #070d1f;
-    --navy-900: #0b1530;
-    --navy-800: #13214a;
-    --navy-700: #1c2f66;
-    --blue: #2f6fe4;
-    --blue-light: #5b9bff;
-    --cyan: #38c6f4;
-    --ink: #0f1a33;
-    --text: #44506a;
-    --muted: #7a859c;
-    --line: rgba(15, 26, 51, .10);
-    --card: rgba(255, 255, 255, .82);
-    --radius: 18px;
-    --shadow: 0 1px 2px rgba(10, 20, 50, .06), 0 12px 32px -8px rgba(10, 20, 50, .18);
-    --shadow-lg: 0 30px 60px -20px rgba(5, 12, 35, .55);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-    color: var(--text);
-    background: #eef2f9;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  /* Faint workshop photo behind the whole page */
-  body::before {
-    content: "";
-    position: fixed; inset: 0; z-index: -2;
-    background: url("images/workshop.jpg") center / cover no-repeat;
-    filter: grayscale(.4) blur(1px);
-    opacity: .13;
-  }
-  body::after {
-    content: "";
-    position: fixed; inset: 0; z-index: -1;
-    background:
-      radial-gradient(60rem 40rem at 110% 10%, rgba(56, 198, 244, .16), transparent 60%),
-      radial-gradient(50rem 40rem at -10% 90%, rgba(47, 111, 228, .14), transparent 60%),
-      linear-gradient(180deg, rgba(238, 242, 249, .55), rgba(238, 242, 249, .85));
-  }
-  img { display: block; max-width: 100%; }
-  a { color: inherit; }
-  .wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
-
-  /* ---------- Header ---------- */
-  header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255, 255, 255, .78);
-    backdrop-filter: saturate(1.6) blur(14px);
-    -webkit-backdrop-filter: saturate(1.6) blur(14px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
-  .nav img { height: 44px; width: auto; }
-  .nav ul { display: flex; gap: 28px; list-style: none; font-weight: 600; font-size: .93rem; color: var(--ink); }
-  .nav ul a { text-decoration: none; opacity: .75; transition: opacity .2s; }
-  .nav ul a:hover { opacity: 1; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 22px; border-radius: 999px;
-    font-weight: 700; font-size: .95rem; text-decoration: none;
-    transition: transform .2s, box-shadow .2s, background .2s;
-    white-space: nowrap;
-  }
-  .btn-primary {
-    color: #fff;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
-    box-shadow: 0 10px 24px -8px rgba(47, 111, 228, .65), inset 0 1px 0 rgba(255,255,255,.25);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -10px rgba(47, 111, 228, .75); }
-  .btn-ghost { color: #fff; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
-  .btn-ghost:hover { background: rgba(255,255,255,.14); }
-  .nav .btn { padding: 10px 18px; font-size: .88rem; }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative; isolation: isolate;
-    color: #fff;
-    padding: 110px 0 150px;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: ""; position: absolute; inset: 0; z-index: -2;
-    background: url("images/workshop.jpg") center 35% / cover no-repeat;
-    transform: scale(1.04);
-  }
-  .hero::after {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background:
-      radial-gradient(45rem 30rem at 85% 20%, rgba(56, 198, 244, .28), transparent 65%),
-      linear-gradient(105deg, rgba(7, 13, 31, .96) 0%, rgba(11, 21, 48, .90) 45%, rgba(19, 33, 74, .72) 100%);
-  }
-  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 7px 14px; border-radius: 999px;
-    background: rgba(56, 198, 244, .12); border: 1px solid rgba(56, 198, 244, .35);
-    color: #bfeaff; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  }
-  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px rgba(56,198,244,.25); }
-  .hero h1 {
-    font-size: clamp(2.3rem, 5vw, 3.9rem); line-height: 1.07; font-weight: 800; letter-spacing: -.025em;
-    margin: 22px 0 18px;
-  }
-  .hero h1 span {
-    background: linear-gradient(90deg, var(--blue-light), var(--cyan));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .hero .trading { font-size: .92rem; font-weight: 400; color: #b8c3da; margin-bottom: 10px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 .45em; }
-  .hero .trading strong { color: #fff; font-size: 1.75rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; }
-  .hero p.lead { font-size: 1.12rem; color: #b8c3da; max-width: 36rem; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-  .hero-badges { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 40px; color: #c4cee3; font-size: .9rem; font-weight: 600; }
-  .hero-badges div { display: flex; align-items: center; gap: 8px; }
-  .hero-badges svg { color: var(--cyan); flex: none; }
-
-  .hero-photo { position: relative; }
-  .hero-photo .frame {
-    border-radius: 22px; overflow: hidden;
-    border: 1px solid rgba(255,255,255,.18);
-    box-shadow: var(--shadow-lg), 0 0 0 8px rgba(255,255,255,.04);
-    transform: rotate(1.5deg);
-  }
-  .hero-photo .frame img { aspect-ratio: 4 / 3.2; object-fit: cover; width: 100%; }
-  .hero-photo .chip {
-    position: absolute; left: -26px; bottom: 28px;
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 18px; border-radius: 16px;
-    background: rgba(255,255,255,.95); color: var(--ink);
-    box-shadow: var(--shadow-lg);
-    font-weight: 700; font-size: .92rem;
-  }
-  .chip .ico {
-    width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
-    background: linear-gradient(135deg, #16a34a, #4ade80); color: #fff;
-  }
-  .chip small { display: block; font-weight: 500; color: var(--muted); font-size: .78rem; }
-
-  .wave { position: absolute; left: 0; right: 0; bottom: -1px; height: 90px; z-index: 1; }
-
-  /* ---------- Sections ---------- */
-  section { padding: 96px 0; position: relative; }
-  .section-head { text-align: center; max-width: 44rem; margin: 0 auto 56px; }
-  .kicker { color: var(--blue); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
-  h2 { color: var(--ink); font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 800; margin: 10px 0 14px; }
-  h3 { color: var(--ink); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
-
-  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-  .card {
-    background: var(--card);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,.9);
-    border-radius: var(--radius); padding: 30px 26px;
-    box-shadow: var(--shadow);
-    transition: transform .25s, box-shadow .25s;
-  }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -16px rgba(10, 20, 50, .3); }
-  .card .icon {
-    width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 20px;
-    color: #fff; background: linear-gradient(135deg, var(--navy-700), var(--blue));
-    box-shadow: 0 10px 20px -8px rgba(28, 47, 102, .7);
-  }
-  .card:nth-child(2) .icon { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
-  .card:nth-child(3) .icon { background: linear-gradient(135deg, #0e7490, #22d3ee); }
-  .card:nth-child(4) .icon { background: linear-gradient(135deg, #15803d, #4ade80); }
-  .card p { font-size: .95rem; }
-
-  /* Feature split */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .photo-stack { position: relative; padding: 0 0 60px 40px; }
-  .photo-stack .main {
-    border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-lg);
-  }
-  .photo-stack .main img { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; object-position: top; }
-  .photo-stack .inset {
-    position: absolute; left: 0; bottom: 0; width: 58%;
-    border-radius: 18px; overflow: hidden;
-    border: 6px solid #fff; box-shadow: var(--shadow-lg);
-  }
-  .photo-stack .inset img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
-  .checks { list-style: none; margin-top: 26px; display: grid; gap: 14px; }
-  .checks li { display: flex; gap: 14px; align-items: flex-start; }
-  .checks .tick {
-    flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px;
-    background: rgba(47, 111, 228, .12); color: var(--blue);
-  }
-  .checks strong { color: var(--ink); }
-
-  /* Process band */
-  .band {
-    color: #fff; isolation: isolate; overflow: hidden;
-    background: linear-gradient(120deg, var(--navy-950), var(--navy-800) 60%, #1a3a86);
-  }
-  .band::before {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background: url("images/laptops.jpg") right center / 50% auto no-repeat;
-    opacity: .12; filter: grayscale(1);
-  }
-  .band h2 { color: #fff; }
-  .band .kicker { color: var(--cyan); }
-  .band .section-head p { color: #b8c3da; }
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
-  .step {
-    position: relative; padding: 30px 24px 26px; border-radius: var(--radius);
-    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-    border: 1px solid rgba(255,255,255,.12);
-  }
-  .step::before {
-    counter-increment: step; content: "0" counter(step);
-    display: block; font-size: 2.4rem; font-weight: 800; line-height: 1; margin-bottom: 16px;
-    background: linear-gradient(90deg, var(--blue-light), var(--cyan));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .step h3 { color: #fff; }
-  .step p { color: #b8c3da; font-size: .94rem; }
-
-  /* Sectors */
-  .sectors { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .sector {
-    display: flex; align-items: center; gap: 14px; padding: 20px 22px; border-radius: 16px;
-    background: var(--card); border: 1px solid rgba(255,255,255,.9); box-shadow: var(--shadow);
-    font-weight: 700; color: var(--ink);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  }
-  .sector svg { color: var(--blue); flex: none; }
-
-  /* Contact */
-  .contact-card {
-    display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden;
-    border-radius: 26px; box-shadow: var(--shadow-lg);
-    background: #fff;
-  }
-  .contact-card .left { padding: 52px 48px; }
-  .contact-card .right {
-    position: relative; color: #fff; padding: 52px 44px; isolation: isolate;
-    background: linear-gradient(150deg, var(--navy-900), var(--navy-700) 70%, var(--blue));
-  }
-  .contact-card .right::before {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background: url("images/decommissioned.jpg") center / cover no-repeat; opacity: .14;
-  }
-  .contact-list { list-style: none; display: grid; gap: 18px; margin-top: 28px; }
-  .contact-list li { display: flex; gap: 16px; align-items: center; }
-  .contact-list .ci {
-    width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; flex: none;
-    background: linear-gradient(135deg, rgba(47,111,228,.12), rgba(56,198,244,.18)); color: var(--blue);
-  }
-  .contact-list small { display: block; color: var(--muted); font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
-  .contact-list a, .contact-list span.v { color: var(--ink); font-weight: 700; text-decoration: none; font-size: 1.05rem; }
-  .contact-list a:hover { color: var(--blue); }
-  .details { display: grid; gap: 18px; margin-top: 26px; }
-  .details div { padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.14); }
-  .details small { display: block; color: #9fb0d0; font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
-  .details span { font-weight: 700; font-size: 1.05rem; }
-
-  footer { padding: 34px 0 40px; color: var(--muted); font-size: .88rem; }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 26px; }
-
-  /* Reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    html { scroll-behavior: auto; }
-  }
-
-  /* ---------- Smaller screens ---------- */
-  @media (max-width: 980px) {
-    .hero-grid, .split, .contact-card { grid-template-columns: 1fr; }
-    .hero { padding: 72px 0 120px; }
-    .hero-photo { max-width: 520px; }
-    .cards, .steps, .sectors { grid-template-columns: repeat(2, 1fr); }
-    .nav ul { display: none; }
-  }
-  @media (max-width: 600px) {
-    section { padding: 72px 0; }
-    .cards, .steps, .sectors { grid-template-columns: 1fr; }
-    .hero-photo .chip { left: 10px; }
-    .photo-stack { padding-left: 0; }
-    .contact-card .left, .contact-card .right { padding: 38px 26px; }
-    .nav img { height: 36px; }
-  }
-</style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
@@ -305,7 +19,7 @@
     <ul>
       <li><a href="#services">Services</a></li>
       <li><a href="#erasure">Data erasure</a></li>
-      <li><a href="#process">Process</a></li>
+      <li><a href="#software">Software</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="btn btn-primary" href="tel:0422213924">Call 0422 213 924</a>
@@ -319,14 +33,12 @@
     <div class="wrap hero-grid">
       <div class="reveal">
         <span class="eyebrow"><span class="dot"></span>Darwin &amp; the Northern Territory</span>
-        <h1>Secure IT disposal,<br><span>certified and local.</span></h1>
+        <h1>Your IT, from first day<br><span>to final wipe.</span></h1>
         <p class="trading"><strong>Eyceline</strong></p>
-        <p class="lead">Decommissioning and certified Blancco data erasure for computers, laptops and servers, handled right here in the Territory.</p>
+        <p class="lead">Certified data erasure and IT disposal, refurbished hardware, onsite service, staff ID cards and custom business software. One local business, one point of contact.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Get a quote
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="#process">How it works</a>
+          <a class="btn btn-primary" href="#contact">Get a quote <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#services">Explore our services</a>
         </div>
         <div class="hero-badges">
           <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Blancco certified erasure</div>
@@ -355,30 +67,52 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div class="kicker">What we do</div>
-        <h2>End-of-life IT, handled properly</h2>
-        <p>From an office refresh to a whole fleet, every device is tracked, wiped and accounted for.</p>
+        <h2>Six services, one local team</h2>
+        <p>Whether you're retiring a fleet, kitting out an office or need software built around how you work, it's handled start to finish.</p>
       </div>
-      <div class="cards">
-        <div class="card reveal">
+      <div class="cards three">
+        <a class="card reveal" href="services/itad.html">
           <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <h3>Decommissioning</h3>
-          <p>Desktops, laptops, servers and network gear collected, logged by serial and asset tag, and taken off your books.</p>
-        </div>
-        <div class="card reveal">
+          <h3>IT Asset Disposition</h3>
+          <p>Retire desktops, laptops, servers and network gear the right way. Every item collected, tagged and accounted for.</p>
+          <ul class="mini"><li>Collection from your site</li><li>Barcode tag per asset</li><li>Audit-ready reports</li></ul>
+          <span class="more">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card reveal" href="services/data-erasure.html">
           <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-          <h3>Certified data erasure</h3>
-          <p>Every drive is wiped with Blancco software, the industry standard trusted by governments and banks worldwide.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
-          <h3>Audit-ready reports</h3>
-          <p>A tamper-proof erasure certificate for each unit, matched to its serial number, ready for your auditors.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h3>Local &amp; direct</h3>
-          <p>Based in Darwin. You deal directly with the person handling your equipment, from quote to final certificate.</p>
-        </div>
+          <h3>Certified Data Erasure</h3>
+          <p>Blancco erasure to NIST 800-88, with a signed certificate for every drive and serial number.</p>
+          <ul class="mini"><li>Blancco certified</li><li>Certificate per serial</li><li>Many machines at once</li></ul>
+          <span class="more">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card reveal" href="services/refurbished.html">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9H4z"/><path d="M2 19h20"/></svg></div>
+          <h3>Refurbished Hardware</h3>
+          <p>Tested, wiped and ready-to-go laptops and desktops for businesses, plus bulk stock for resellers.</p>
+          <ul class="mini"><li>Tested and graded</li><li>Complete desk bundles</li><li>Bulk lots for resellers</li></ul>
+          <span class="more">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card reveal" href="services/onsite.html">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 8-8-1.3-1.3a4 4 0 0 0-5-5L14 2z" transform="rotate(0)"/><path d="M3 21l6-6"/></svg></div>
+          <h3>Onsite IT Service</h3>
+          <p>Booked site visits for setup, repairs and upgrades, with parts, labour and travel itemised on one invoice.</p>
+          <ul class="mini"><li>Booked visits</li><li>Parts and upgrades fitted</li><li>Clear itemised invoices</li></ul>
+          <span class="more">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card reveal" href="services/id-cards.html">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.2"/><path d="M5 16.5c.6-1.4 1.7-2 3-2s2.4.6 3 2M14 10h5M14 14h3"/></svg></div>
+          <h3>ID Card Bureau</h3>
+          <p>Printed staff photo ID cards and badges for your team, with easy re-orders for new starters.</p>
+          <ul class="mini"><li>Photo ID cards</li><li>Bulk team orders</li><li>Quick re-orders</li></ul>
+          <span class="more">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card reveal" href="#software">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+          <h3>Software Development</h3>
+          <p>Custom business software, built and supported locally. See Soundstore and DentaCore below.</p>
+          <ul class="mini"><li>Discovery and proposal</li><li>Build and testing</li><li>Ongoing support</li></ul>
+          <span class="more">See our software <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -399,6 +133,7 @@
           <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong>Many machines at once.</strong> Dedicated erasure racks for laptops and desktops.</span></li>
           <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong>Certificate per serial.</strong> Proof you can hand straight to compliance.</span></li>
         </ul>
+        <a class="btn btn-primary" style="margin-top: 30px;" href="services/data-erasure.html">More on data erasure <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
@@ -420,8 +155,40 @@
     </div>
   </section>
 
+  <!-- Software -->
+  <section id="software">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Software</div>
+        <h2>Business software, built to fit</h2>
+        <p>We design and build desktop software for businesses that have outgrown spreadsheets and off-the-shelf tools. From the first conversation to the proposal, the build and ongoing support, you deal with the developer.</p>
+      </div>
+      <div class="products">
+        <a class="product reveal" href="https://gregmiddo.github.io/soundstore-site/">
+          <div class="shot"><img src="images/soundstore.jpg" alt="Soundstore home screen" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Music retail</span>
+            <h3>Soundstore</h3>
+            <p>All-in-one management for music shops: point of sale, stock, repairs, hire, lessons and room bookings, plus a built-in flyer maker for gigs and promotions.</p>
+            <span class="more">Visit the Soundstore site <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a class="product reveal" href="https://gregmiddo.github.io/dentacore-site/">
+          <div class="shot"><img src="images/dentacore.jpg" alt="DentaCore appointment book" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Dental practice</span>
+            <h3>DentaCore</h3>
+            <p>Practice management for Australian dental practices: appointments, clinical charting, imaging and ceph analysis, billing, reports and patient communications.</p>
+            <span class="more">Visit the DentaCore site <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+      <p class="software-note reveal"><a class="btn btn-primary" href="mailto:greg.middleton@eyceline.com?subject=Software%20enquiry">Talk to us about your own software</a></p>
+    </div>
+  </section>
+
   <!-- Sectors -->
-  <section>
+  <section style="padding-top: 24px;">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="kicker">Who we work with</div>
@@ -442,8 +209,8 @@
       <div class="contact-card reveal">
         <div class="left">
           <div class="kicker">Get in touch</div>
-          <h2>Ready to retire some hardware?</h2>
-          <p>Tell us what you have and we'll come back with a quote. Minimum quantities may apply.</p>
+          <h2>Let's talk about your next job</h2>
+          <p>Tell us what you need, whether it's hardware to retire, machines to buy, a site visit, ID cards or software, and we'll come back with a quote.</p>
           <ul class="contact-list">
             <li><span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Phone</small><a href="tel:0422213924">0422 213 924</a></span></li>
             <li><span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span><small>Email</small><a href="mailto:greg.middleton@eyceline.com">greg.middleton@eyceline.com</a></span></li>
@@ -463,6 +230,7 @@
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
