@@ -1,59 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eyceline Services | Secure ITAD</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .bg-hardware {
-            /* Professional background of IT hardware with a dark slate overlay for contrast */
-            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eyceline | Secure IT Asset Disposition, Darwin NT</title>
+<meta name="description" content="Greg Middleton trading as Eyceline. Certified Blancco data erasure and IT decommissioning in Darwin, Northern Territory.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-950: #070d1f;
+    --navy-900: #0b1530;
+    --navy-800: #13214a;
+    --navy-700: #1c2f66;
+    --blue: #2f6fe4;
+    --blue-light: #5b9bff;
+    --cyan: #38c6f4;
+    --ink: #0f1a33;
+    --text: #44506a;
+    --muted: #7a859c;
+    --line: rgba(15, 26, 51, .10);
+    --card: rgba(255, 255, 255, .82);
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(10, 20, 50, .06), 0 12px 32px -8px rgba(10, 20, 50, .18);
+    --shadow-lg: 0 30px 60px -20px rgba(5, 12, 35, .55);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: #eef2f9;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  /* Faint workshop photo behind the whole page */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: -2;
+    background: url("images/workshop.jpg") center / cover no-repeat;
+    filter: grayscale(.4) blur(1px);
+    opacity: .13;
+  }
+  body::after {
+    content: "";
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(60rem 40rem at 110% 10%, rgba(56, 198, 244, .16), transparent 60%),
+      radial-gradient(50rem 40rem at -10% 90%, rgba(47, 111, 228, .14), transparent 60%),
+      linear-gradient(180deg, rgba(238, 242, 249, .55), rgba(238, 242, 249, .85));
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .78);
+    backdrop-filter: saturate(1.6) blur(14px);
+    -webkit-backdrop-filter: saturate(1.6) blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
+  .nav img { height: 44px; width: auto; }
+  .nav ul { display: flex; gap: 28px; list-style: none; font-weight: 600; font-size: .93rem; color: var(--ink); }
+  .nav ul a { text-decoration: none; opacity: .75; transition: opacity .2s; }
+  .nav ul a:hover { opacity: 1; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 999px;
+    font-weight: 700; font-size: .95rem; text-decoration: none;
+    transition: transform .2s, box-shadow .2s, background .2s;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+    box-shadow: 0 10px 24px -8px rgba(47, 111, 228, .65), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -10px rgba(47, 111, 228, .75); }
+  .btn-ghost { color: #fff; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
+  .btn-ghost:hover { background: rgba(255,255,255,.14); }
+  .nav .btn { padding: 10px 18px; font-size: .88rem; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; isolation: isolate;
+    color: #fff;
+    padding: 110px 0 150px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -2;
+    background: url("images/workshop.jpg") center 35% / cover no-repeat;
+    transform: scale(1.04);
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(45rem 30rem at 85% 20%, rgba(56, 198, 244, .28), transparent 65%),
+      linear-gradient(105deg, rgba(7, 13, 31, .96) 0%, rgba(11, 21, 48, .90) 45%, rgba(19, 33, 74, .72) 100%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 7px 14px; border-radius: 999px;
+    background: rgba(56, 198, 244, .12); border: 1px solid rgba(56, 198, 244, .35);
+    color: #bfeaff; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px rgba(56,198,244,.25); }
+  .hero h1 {
+    font-size: clamp(2.3rem, 5vw, 3.9rem); line-height: 1.07; font-weight: 800; letter-spacing: -.025em;
+    margin: 22px 0 18px;
+  }
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--blue-light), var(--cyan));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .trading { font-size: .92rem; font-weight: 400; color: #b8c3da; margin-bottom: 10px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 .45em; }
+  .hero .trading strong { color: #fff; font-size: 1.75rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; }
+  .hero p.lead { font-size: 1.12rem; color: #b8c3da; max-width: 36rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 40px; color: #c4cee3; font-size: .9rem; font-weight: 600; }
+  .hero-badges div { display: flex; align-items: center; gap: 8px; }
+  .hero-badges svg { color: var(--cyan); flex: none; }
+
+  .hero-photo { position: relative; }
+  .hero-photo .frame {
+    border-radius: 22px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: var(--shadow-lg), 0 0 0 8px rgba(255,255,255,.04);
+    transform: rotate(1.5deg);
+  }
+  .hero-photo .frame img { aspect-ratio: 4 / 3.2; object-fit: cover; width: 100%; }
+  .hero-photo .chip {
+    position: absolute; left: -26px; bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px; border-radius: 16px;
+    background: rgba(255,255,255,.95); color: var(--ink);
+    box-shadow: var(--shadow-lg);
+    font-weight: 700; font-size: .92rem;
+  }
+  .chip .ico {
+    width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+    background: linear-gradient(135deg, #16a34a, #4ade80); color: #fff;
+  }
+  .chip small { display: block; font-weight: 500; color: var(--muted); font-size: .78rem; }
+
+  .wave { position: absolute; left: 0; right: 0; bottom: -1px; height: 90px; z-index: 1; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 96px 0; position: relative; }
+  .section-head { text-align: center; max-width: 44rem; margin: 0 auto 56px; }
+  .kicker { color: var(--blue); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+  h2 { color: var(--ink); font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 800; margin: 10px 0 14px; }
+  h3 { color: var(--ink); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .card {
+    background: var(--card);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: var(--radius); padding: 30px 26px;
+    box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -16px rgba(10, 20, 50, .3); }
+  .card .icon {
+    width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 20px;
+    color: #fff; background: linear-gradient(135deg, var(--navy-700), var(--blue));
+    box-shadow: 0 10px 20px -8px rgba(28, 47, 102, .7);
+  }
+  .card:nth-child(2) .icon { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+  .card:nth-child(3) .icon { background: linear-gradient(135deg, #0e7490, #22d3ee); }
+  .card:nth-child(4) .icon { background: linear-gradient(135deg, #15803d, #4ade80); }
+  .card p { font-size: .95rem; }
+
+  /* Feature split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .photo-stack { position: relative; padding: 0 0 60px 40px; }
+  .photo-stack .main {
+    border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-lg);
+  }
+  .photo-stack .main img { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; object-position: top; }
+  .photo-stack .inset {
+    position: absolute; left: 0; bottom: 0; width: 58%;
+    border-radius: 18px; overflow: hidden;
+    border: 6px solid #fff; box-shadow: var(--shadow-lg);
+  }
+  .photo-stack .inset img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+  .checks { list-style: none; margin-top: 26px; display: grid; gap: 14px; }
+  .checks li { display: flex; gap: 14px; align-items: flex-start; }
+  .checks .tick {
+    flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px;
+    background: rgba(47, 111, 228, .12); color: var(--blue);
+  }
+  .checks strong { color: var(--ink); }
+
+  /* Process band */
+  .band {
+    color: #fff; isolation: isolate; overflow: hidden;
+    background: linear-gradient(120deg, var(--navy-950), var(--navy-800) 60%, #1a3a86);
+  }
+  .band::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: url("images/laptops.jpg") right center / 50% auto no-repeat;
+    opacity: .12; filter: grayscale(1);
+  }
+  .band h2 { color: #fff; }
+  .band .kicker { color: var(--cyan); }
+  .band .section-head p { color: #b8c3da; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
+  .step {
+    position: relative; padding: 30px 24px 26px; border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .step::before {
+    counter-increment: step; content: "0" counter(step);
+    display: block; font-size: 2.4rem; font-weight: 800; line-height: 1; margin-bottom: 16px;
+    background: linear-gradient(90deg, var(--blue-light), var(--cyan));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .step h3 { color: #fff; }
+  .step p { color: #b8c3da; font-size: .94rem; }
+
+  /* Sectors */
+  .sectors { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .sector {
+    display: flex; align-items: center; gap: 14px; padding: 20px 22px; border-radius: 16px;
+    background: var(--card); border: 1px solid rgba(255,255,255,.9); box-shadow: var(--shadow);
+    font-weight: 700; color: var(--ink);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  .sector svg { color: var(--blue); flex: none; }
+
+  /* Contact */
+  .contact-card {
+    display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden;
+    border-radius: 26px; box-shadow: var(--shadow-lg);
+    background: #fff;
+  }
+  .contact-card .left { padding: 52px 48px; }
+  .contact-card .right {
+    position: relative; color: #fff; padding: 52px 44px; isolation: isolate;
+    background: linear-gradient(150deg, var(--navy-900), var(--navy-700) 70%, var(--blue));
+  }
+  .contact-card .right::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: url("images/decommissioned.jpg") center / cover no-repeat; opacity: .14;
+  }
+  .contact-list { list-style: none; display: grid; gap: 18px; margin-top: 28px; }
+  .contact-list li { display: flex; gap: 16px; align-items: center; }
+  .contact-list .ci {
+    width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; flex: none;
+    background: linear-gradient(135deg, rgba(47,111,228,.12), rgba(56,198,244,.18)); color: var(--blue);
+  }
+  .contact-list small { display: block; color: var(--muted); font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .contact-list a, .contact-list span.v { color: var(--ink); font-weight: 700; text-decoration: none; font-size: 1.05rem; }
+  .contact-list a:hover { color: var(--blue); }
+  .details { display: grid; gap: 18px; margin-top: 26px; }
+  .details div { padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .details small { display: block; color: #9fb0d0; font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .details span { font-weight: 700; font-size: 1.05rem; }
+
+  footer { padding: 34px 0 40px; color: var(--muted); font-size: .88rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 26px; }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Smaller screens ---------- */
+  @media (max-width: 980px) {
+    .hero-grid, .split, .contact-card { grid-template-columns: 1fr; }
+    .hero { padding: 72px 0 120px; }
+    .hero-photo { max-width: 520px; }
+    .cards, .steps, .sectors { grid-template-columns: repeat(2, 1fr); }
+    .nav ul { display: none; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 72px 0; }
+    .cards, .steps, .sectors { grid-template-columns: 1fr; }
+    .hero-photo .chip { left: 10px; }
+    .photo-stack { padding-left: 0; }
+    .contact-card .left, .contact-card .right { padding: 38px 26px; }
+    .nav img { height: 36px; }
+  }
+</style>
 </head>
-<body class="bg-hardware text-slate-800 font-sans antialiased min-h-screen flex items-center justify-center p-4 md:p-8">
-    <main class="w-full max-w-3xl bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-slate-200 p-8 md:p-12">
-        <div class="flex flex-col items-center text-center space-y-6">
-            
-            <img src="logo.png" alt="Eyceline Services Logo" class="h-28 object-contain drop-shadow-sm">
-            
-            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900">
-                Eyceline Services
-            </h1>
-            
-            <p class="text-lg font-bold text-blue-700 uppercase tracking-wider">
-                Territory Local IT Asset Disposition
-            </p>
+<body>
 
-            <div class="bg-white border-l-4 border-blue-600 p-6 text-left w-full mt-6 shadow-sm rounded-r-md">
-                <h2 class="text-xl font-bold text-slate-900 mb-2">Secure Data Destruction</h2>
-                <p class="text-slate-700 leading-relaxed">
-                    Enterprise-grade data sanitization for decommissioned IT infrastructure. All data destruction is strictly certified by <strong>Blancco</strong>, ensuring complete compliance with NIST 800-88 standards and generating verifiable cryptographic audit reports.
-                </p>
-            </div>
+<header>
+  <div class="wrap nav">
+    <a href="#top" aria-label="Eyceline home"><img src="logo.png" alt="Eyceline Services"></a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#erasure">Data erasure</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="tel:0422213924">Call 0422 213 924</a>
+  </div>
+</header>
 
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 text-left mt-8 pt-8 border-t border-slate-300">
-                <div>
-                    <h3 class="font-bold text-slate-900 mb-2">Business Details</h3>
-                    <ul class="space-y-1 text-slate-600">
-                        <li><strong>Director:</strong> Greg Middleton</li>
-                        <li><strong>ABN:</strong> 13 323 151 716</li>
-                        <li><strong>Location:</strong> Darwin, Northern Territory</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900 mb-2">Contact</h3>
-                    <ul class="space-y-1 text-slate-600">
-                        <li><strong>Phone:</strong> 0422 213 924</li>
-                        <li><strong>Email:</strong> <a href="mailto:greg.middleton@eyceline.com" class="text-blue-700 hover:underline font-medium">greg.middleton@eyceline.com</a></li>
-                    </ul>
-                </div>
-            </div>
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span>Darwin &amp; the Northern Territory</span>
+        <h1>Secure IT disposal,<br><span>certified and local.</span></h1>
+        <p class="trading">Greg Middleton trading as <strong>Eyceline</strong></p>
+        <p class="lead">Decommissioning, certified Blancco data erasure and responsible reuse of computers, laptops and servers, handled right here in the Territory.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get a quote
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#process">How it works</a>
         </div>
-    </main>
+        <div class="hero-badges">
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Blancco certified erasure</div>
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>NIST 800-88 reports</div>
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>NT owned and operated</div>
+        </div>
+      </div>
+
+      <div class="hero-photo reveal">
+        <div class="frame"><img src="images/erasure.jpg" alt="Laptop running a Blancco data erasure"></div>
+        <div class="chip">
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span>Erasure verified<small>Certificate for every serial</small></span>
+        </div>
+      </div>
+    </div>
+
+    <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#eef2f9" fill-opacity=".55" d="M0 50 C 240 10 480 10 720 40 S 1200 90 1440 40 V90 H0z"/>
+      <path fill="#eef2f9" d="M0 70 C 300 30 560 40 820 62 S 1240 80 1440 58 V90 H0z"/>
+    </svg>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">What we do</div>
+        <h2>End-of-life IT, handled properly</h2>
+        <p>From an office refresh to a whole fleet, every device is tracked, wiped and accounted for.</p>
+      </div>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Decommissioning</h3>
+          <p>Desktops, laptops, servers and network gear collected, logged by serial and asset tag, and taken off your books.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Certified data erasure</h3>
+          <p>Every drive is wiped with Blancco software, the industry standard trusted by governments and banks worldwide.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
+          <h3>Audit-ready reports</h3>
+          <p>A tamper-proof erasure certificate for each unit, matched to its serial number, ready for your auditors.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7.4 9"/><path d="m11 19 3 3v-6zM14 22v-3h5.2a1.8 1.8 0 0 0 1.6-2.7l-1.3-2.2"/><path d="m9 5.6 1.4-2.4a1.8 1.8 0 0 1 3.1 0L16.4 8"/><path d="m12 8 4.4.6L17 4"/></svg></div>
+          <h3>Reuse &amp; recycling</h3>
+          <p>Working equipment gets a second life; what can't be reused is recycled responsibly, keeping it out of landfill.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Erasure feature -->
+  <section id="erasure" style="padding-top: 24px;">
+    <div class="wrap split">
+      <div class="photo-stack reveal">
+        <div class="main"><img src="images/laptops.jpg" alt="Racks of laptops connected for data erasure"></div>
+        <div class="inset"><img src="images/decommissioned.jpg" alt="Desktop computers tagged Decommissioned, Blancco Certified"></div>
+      </div>
+      <div class="reveal">
+        <div class="kicker">Secure data destruction</div>
+        <h2>Your data, gone for good. And proven.</h2>
+        <p>Enterprise-grade sanitisation for decommissioned IT. All data destruction is certified by <strong>Blancco</strong>, meeting NIST 800-88 standards and producing verifiable, cryptographically signed audit reports.</p>
+        <ul class="checks">
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong>Every unit tagged.</strong> Barcoded and tracked from pickup to final report.</span></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong>Many machines at once.</strong> Dedicated erasure racks for laptops and desktops.</span></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong>Certificate per serial.</strong> Proof you can hand straight to compliance.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="band">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">The decommissioning process</div>
+        <h2>Four steps, fully documented</h2>
+        <p>Simple for you, thorough behind the scenes.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Collect &amp; tag</h3><p>We pick up your equipment and record every serial number and asset tag.</p></div>
+        <div class="step reveal"><h3>Erase</h3><p>Drives are wiped with Blancco, overwriting every sector and verifying the result.</p></div>
+        <div class="step reveal"><h3>Certify</h3><p>You receive an erasure certificate for each device, matched to your asset list.</p></div>
+        <div class="step reveal"><h3>Reuse or recycle</h3><p>Equipment is refurbished for reuse, or recycled responsibly when it can't be.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Who we work with</div>
+        <h2>Specialising in</h2>
+      </div>
+      <div class="sectors">
+        <div class="sector reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-7 10 7z"/></svg>Government</div>
+        <div class="sector reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Education</div>
+        <div class="sector reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>NGOs</div>
+        <div class="sector reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>SMEs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <div class="left">
+          <div class="kicker">Get in touch</div>
+          <h2>Ready to retire some hardware?</h2>
+          <p>Tell us what you have and we'll come back with a quote. Minimum quantities may apply.</p>
+          <ul class="contact-list">
+            <li><span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Phone</small><a href="tel:0422213924">0422 213 924</a></span></li>
+            <li><span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span><small>Email</small><a href="mailto:greg.middleton@eyceline.com">greg.middleton@eyceline.com</a></span></li>
+            <li><span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><small>Location</small><span class="v">Darwin, Northern Territory</span></span></li>
+          </ul>
+        </div>
+        <div class="right">
+          <div class="kicker" style="color: var(--cyan);">Business details</div>
+          <h2 style="color:#fff; font-size: 1.7rem;">Eyceline</h2>
+          <div class="details">
+            <div><small>Proprietor</small><span style="font-weight: 400; font-size: .92rem; color: #c4cee3;">Greg Middleton trading as <strong style="color: #fff; font-size: 1.35rem; font-weight: 800;">Eyceline</strong></span></div>
+            <div><small>ABN</small><span>13 323 151 716</span></div>
+            <div><small>Based in</small><span>Darwin, NT</span></div>
+          </div>
+          <a class="btn btn-primary" style="margin-top: 32px;" href="mailto:greg.middleton@eyceline.com?subject=Quote%20request">Email for a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Greg Middleton trading as Eyceline &middot; ABN 13 323 151 716</span>
+    <span>Darwin, Northern Territory</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  const io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 }) : null;
+  document.querySelectorAll(".reveal").forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 80 + "ms";
+    io ? io.observe(el) : el.classList.add("in");
+  });
+</script>
 </body>
 </html>
