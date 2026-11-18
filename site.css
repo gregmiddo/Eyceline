@@ -310,7 +310,7 @@ p { margin: 0; }
 .btns { display: flex; flex-wrap: wrap; gap: 10px; }
 .rail-site { margin-top: 14px; }
 .rail-site .btn { display: flex; justify-content: center; text-align: center; }
-.lobs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.4vw, 18px); align-content: center; }
+.lobs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.4vw, 18px); align-content: center; }
 .lob { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--film-line); border-radius: 12px; overflow: hidden; background: rgba(11,21,48,.72); color: var(--film-ink); text-decoration: none; transition: border-color .15s, transform .15s; }
 .lob:hover { border-color: var(--film-accent); transform: translateY(-2px); }
 .lob img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; display: block; border-bottom: 1px solid var(--film-line); }
