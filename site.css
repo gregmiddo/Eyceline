@@ -310,3 +310,13 @@ p { margin: 0; }
 .btns { display: flex; flex-wrap: wrap; gap: 10px; }
 .rail-site { margin-top: 14px; }
 .rail-site .btn { display: flex; justify-content: center; text-align: center; }
+.lobs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.4vw, 18px); align-content: center; }
+.lob { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--film-line); border-radius: 12px; overflow: hidden; background: rgba(11,21,48,.72); color: var(--film-ink); text-decoration: none; transition: border-color .15s, transform .15s; }
+.lob:hover { border-color: var(--film-accent); transform: translateY(-2px); }
+.lob img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; display: block; border-bottom: 1px solid var(--film-line); }
+.lob-t { display: grid; gap: 3px; padding: clamp(8px, 1.2vh, 12px) 12px clamp(10px, 1.4vh, 14px); align-content: start; }
+.lob-t .eyebrow { color: var(--film-accent); font-size: .64rem; }
+.lob-t strong { color: #F4F9FC; font: 650 clamp(.92rem, .8rem + .35vw, 1.06rem)/1.2 var(--font-display); }
+.lob-t > span:last-child { color: var(--film-muted); font-size: .8rem; line-height: 1.35; }
+@media (max-height: 820px) and (min-width: 900px) { .lob-t > span:last-child { display: none; } }
+@media (max-width: 899px), (max-height: 559px) { .lobs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
